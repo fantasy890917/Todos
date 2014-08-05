@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mediatek.todos">
+    <uses-permission android:name="android.permission.VIBRATE"/>
+<uses-sdk
+	 android:minSdkVersion="11"  />
+
+    <application android:icon="@drawable/ic_launcher_todo"
+        android:theme="@android:style/Theme.Holo.Light"
+        android:uiOptions="splitActionBarWhenNarrow"
+        android:label="@string/app_header"
+        android:supportsRtl="true" >
+        <activity android:label="@string/app_header" android:name=".TodosActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".EditTodoActivity"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+
+        <provider android:name=".provider.TodoProvider"
+            android:authorities="com.mediatek.todos" android:multiprocess="false" />
+    </application>
+<!-- android:uiOptions="splitActionBarWhenNarrow" 
+在屏幕宽度比较窄的情况下，将ActionBar的items放置到屏幕底部 .
+RTL布局支持
+Android现在提供了一些API，使您可以构建更优雅的变换布局方向的用户界面。
+这些界面将支持由右到左（RTL）的语言和阅读方向。比如阿拉伯语和希伯来语。
+为了使您的应用支持RTL布局，需要在manifest文件中设置元素的android:supportsRtl
+属性为“true”。一旦启用，该系统将启用各种RTLAPI来用RTL布局显示您的应用。举例来说，
+在操作栏中将操作按钮显示在左侧，而把图标和标题显示在右侧。
+所有您用框架提供的View类所构建的布局也会以相反的方向显示。 -->
+</manifest>
